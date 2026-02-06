@@ -2,15 +2,16 @@
 
 def factorial(n: int) -> int:
 
-    fact = 1
-    nmOne = 0
+# Loop Method
 
-    for i in range(n):
-        nmOne = n - 1
-        fact = nmOne * n
-        fact = fact * nmOne
-    
+    # result = 1
+    # for i in range (1, n + 1):
+    #     result = result * i
+    # return result
 
+# Recursion Method
+
+    return n * factorial(n - 1) if n > 1 else 1
 
 print("Example:")
 print(factorial(4))
