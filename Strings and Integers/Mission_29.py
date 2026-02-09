@@ -1,22 +1,34 @@
 # https://py.checkio.org/en/mission/bird-language/
 
 def translation(text: str) -> str:
-    vowels = "aeiou"
+    vowels = "aeiouy"
     word = []
+    j = 0
 
     for i, alphas in enumerate(text):
+
+        if j != i:
+            continue
+
+        if alphas == " ":
+            word.append(text[i])
+            j += 1
+            continue
+
         if alphas not in vowels:
             word.append(text[i])
-            i = i + 2
-        else: 
+            j = j + 1            
+        elif alphas in vowels: 
             word.append(text[i])
-            i = i + 3
+            j = j + 2
+
+        j += 1
 
     return word
 
 
 print("Example:")
-print(translation("hieeelalaooo"))
+print(translation("sooooso aaaaaaaaa"))
 
 # These "asserts" are used for self-checking
 assert translation("hieeelalaooo") == "hello"
