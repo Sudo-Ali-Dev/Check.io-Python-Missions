@@ -24,7 +24,7 @@ def translation(text: str) -> str:
 
         j += 1
 
-    return word
+    return "".join(word)
 
 
 print("Example:")
