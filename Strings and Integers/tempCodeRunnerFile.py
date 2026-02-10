@@ -1,1 +1,1 @@
-            word.append(text[i])
+tempCommon
