@@ -1,3 +1,5 @@
+# https://py.checkio.org/en/mission/digits-multiplication/
+
 def checkio(number: int) -> int:
     int_str = str(number).replace('0', '')
     new_str = "".join(int_str)
