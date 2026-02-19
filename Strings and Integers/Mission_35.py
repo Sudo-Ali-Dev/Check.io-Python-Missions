@@ -1,3 +1,5 @@
+# https://py.checkio.org/en/mission/convert-date/
+
 def convert_date(date: str) -> str:
 
     date_without_punc = date.replace("/", " ").split()
