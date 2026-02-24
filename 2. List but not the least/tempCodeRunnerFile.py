@@ -1,1 +1,1 @@
-return text[::-1]
+str
