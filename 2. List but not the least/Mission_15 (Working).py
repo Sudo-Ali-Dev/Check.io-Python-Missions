@@ -1,23 +1,26 @@
 # https://py.checkio.org/en/mission/non-empty-lines/
 
 def non_empty_lines(text: str) -> int:
+    
+    locations = []
+    for ind, beta in enumerate(text):
+        if text[ind] == '\n':
+            locations.append(ind)
+    
+    if 0 in locations:
+        locations.pop(0)
 
-    if "\n" not in text or text == "":
-        return 0
+    i = 0
+    while i < len(locations) - 1:
+        if locations[i] == locations[i+1] - 1:
+            locations.pop(i)
+        i += 1
 
-    times = []
-    for words in text.split(" "):
-        if "\n" in words:
-            times.append(words)
-
-    if times[0] == text.split(" ")[0] and times[-1] == text.split(" ")[-1]:
-        times.pop()
-
-    return len(times)
+    return len(locations)
 
 
 print("Example:")
-print(non_empty_lines("line1\nline2"))
+print(non_empty_lines('one simple line\n'))
 
 # These "asserts" are used for self-checking
 assert non_empty_lines("one simple line\n") == 1
