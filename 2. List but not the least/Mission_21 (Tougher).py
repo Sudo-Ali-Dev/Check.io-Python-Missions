@@ -2,15 +2,18 @@
 # Simple
 
 def changing_direction(elements: list[int]) -> int:
-    count = 0
-    i = 1
-    while i < len(elements) - 1:
-        if elements[i - 1] > elements[(i)] and elements[(i)] < elements[(i + 1)]:
-            count += 1
-        i += 1
+    directions = []
+
+    for i, j in zip(elements, elements[1:]):
+        if j > i and (not directions or directions[-1] == '-'):
+            directions.append('+')
+        elif j < i and (not directions or directions[-1] == '+'):
+            directions.append('-')
+
+    return (len(directions)) - bool(directions)
 
 print("Example:")
-print(changing_direction([1, 2, 2, 1, 2, 2]))
+print(changing_direction([5, 4, 1]))
 
 # These "asserts" are used for self-checking
 assert changing_direction([1, 2, 3, 4, 5]) == 0
